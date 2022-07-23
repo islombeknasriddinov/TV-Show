@@ -20,7 +20,21 @@
             android:background="@color/black"
             app:layout_scrollFlags="scroll|enterAlways"
             app:title="@string/app_name"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="@color/white" >
+
+            <ImageView
+                android:id="@+id/b_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center"
+                app:tint="@color/white"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_history"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+
 
 
     </com.google.android.material.appbar.AppBarLayout>

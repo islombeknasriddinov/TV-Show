@@ -2,11 +2,11 @@ package com.sjgroup.android_imperative.di
 
 import android.app.Application
 import com.sjgroup.android_imperative.network.Server.IS_TESTER
-import com.sjgroup.android_imperative.network.Server.SERVER_DEVELOPMEnT
-import com.sjgroup.android_imperative.network.Server.SERVER_PRODUCTION
 import com.sjgroup.android_imperative.network.services.TVShowService
 import com.sjgroup.android_imperative.db.AppDatabase
 import com.sjgroup.android_imperative.db.TVShowDao
+import com.sjgroup.android_imperative.network.Server.getDevelopment
+import com.sjgroup.android_imperative.network.Server.getProduction
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,8 +25,8 @@ class AppModuls {
 
     @Provides
     fun server():String{
-        if (IS_TESTER) return SERVER_DEVELOPMEnT
-        return SERVER_PRODUCTION
+        if (IS_TESTER) return getDevelopment()
+        return getProduction()
     }
 
     @Provides
