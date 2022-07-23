@@ -7,20 +7,21 @@ import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.sjgroup.android_imperative.R
+import com.sjgroup.android_imperative.activities.HistoryActivity
 import com.sjgroup.android_imperative.activities.MainActivity
 import com.sjgroup.android_imperative.databinding.ItemTvShowBinding
 import com.sjgroup.android_imperative.models.TVShow
 
-class TVShowAdapter(var activity: MainActivity, var items: ArrayList<TVShow>): BaseAdapter(){
+class HistoryAdapter(var activity: HistoryActivity, var items: ArrayList<TVShow>) : BaseAdapter() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_tv_show,parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_tv_show, parent, false)
         return TvShowViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-       val tvShow : TVShow = items[position]
-        if (holder is TvShowViewHolder){
+        val tvShow: TVShow = items[position]
+        if (holder is TvShowViewHolder) {
             Glide.with(activity).load(tvShow.image_thumbnail_path).into(holder.binding.ivMovie)
             holder.binding.tvName.text = tvShow.name
             holder.binding.tvType.text = tvShow.network
@@ -40,11 +41,11 @@ class TVShowAdapter(var activity: MainActivity, var items: ArrayList<TVShow>): B
         return items.size
     }
 
-    inner class TvShowViewHolder(view :View):RecyclerView.ViewHolder(view){
+    inner class TvShowViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val binding = ItemTvShowBinding.bind(view)
     }
 
-    fun setNewTVShows(tvShows: ArrayList<TVShow>){
+    fun setNewTVShows(tvShows: ArrayList<TVShow>) {
         items.addAll(tvShows)
         notifyDataSetChanged()
     }

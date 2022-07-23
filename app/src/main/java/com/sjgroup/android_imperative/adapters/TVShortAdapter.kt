@@ -10,7 +10,7 @@ import com.sjgroup.android_imperative.activities.DetailActivity
 import com.sjgroup.android_imperative.activities.MainActivity
 import com.sjgroup.android_imperative.databinding.ItemTvShortBinding
 
-class TVShortAdapter(var activity: DetailActivity, var items: List<String>): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class TVShortAdapter(var activity: DetailActivity, var items: List<String>): BaseAdapter(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_tv_short,parent, false)

@@ -54,9 +54,15 @@ class MainActivity : BaseActivity() {
         binding.rvHome.smoothScrollToPosition(0)
         }
         viewModel.apiTVShowPopular(1)
+
+        binding.bHistory.setOnClickListener {
+            val intent = Intent(this, HistoryActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun refreshAdapter(items: ArrayList<TVShow>){
+
         adapter = TVShowAdapter(this, items)
         binding.rvHome.adapter = adapter
     }

@@ -66,5 +66,11 @@ class MainViewModel @Inject constructor(private val tvShowRepository: TVShowRepo
         }
 
     }
+
+    fun getTvShowsFromDB(){
+        viewModelScope.launch {
+            tvShowFromDb.postValue(tvShowRepository.getTvShowsFromDB() as ArrayList<TVShow>)
+        }
+    }
 }
 
